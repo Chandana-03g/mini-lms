@@ -144,10 +144,10 @@ export default function Navbar() {
   return (
     <>
       {/* NAVBAR */}
-      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur shadow">
+      <header className="sticky top-0 z-50 bg-background/80 backdrop-blur shadow">
         <nav className="px-6 py-3 flex justify-between items-center">
           {/* LOGO */}
-          <Link href="/" className="text-xl font-bold text-purple-800">
+          <Link href="/" className="text-xl font-bold text-primary">
             E-Learn
           </Link>
 
@@ -162,11 +162,11 @@ export default function Navbar() {
                 key={item.label}
                 href={item.href}
                 className="
-                  relative font-medium text-gray-800
-                  hover:text-purple-700
+                  relative font-medium text-foreground
+                  hover:text-primary
                   transition
                   after:absolute after:left-0 after:-bottom-1
-                  after:h-[2px] after:w-0 after:bg-purple-600
+                  after:h-[2px] after:w-0 after:bg-primary
                   after:transition-all after:duration-300
                   hover:after:w-full
                 "
@@ -178,7 +178,7 @@ export default function Navbar() {
             {!session ? (
               <Link
                 href="/login"
-                className="px-4 py-2 bg-purple-600 text-white rounded-lg"
+                className="px-4 py-2 bg-primary text-primary-foreground rounded-lg"
               >
                 Login
               </Link>
@@ -187,7 +187,7 @@ export default function Navbar() {
                 {/* PROFILE BUTTON */}
                 <div
                   onClick={() => setProfileOpen(!profileOpen)}
-                  className="w-9 h-9 rounded-full bg-purple-600 text-white
+                  className="w-9 h-9 rounded-full bg-primary text-primary-foreground
                              flex items-center justify-center font-semibold
                              cursor-pointer"
                 >
@@ -199,11 +199,11 @@ export default function Navbar() {
                   <div
                     className="
                       absolute right-0 mt-3
-                      w-40 bg-white rounded-xl
+                      w-40 bg-popover rounded-xl
                       shadow-xl border overflow-hidden
                     "
                   >
-                    <div className="px-4 py-2 text-xs text-gray-500 border-b">
+                    <div className="px-4 py-2 text-xs text-muted-foreground border-b">
                       Signed in
                     </div>
 
@@ -211,7 +211,7 @@ export default function Navbar() {
                       onClick={() => signOut({ callbackUrl: "/" })}
                       className="
                         w-full px-4 py-2 text-sm text-left
-                        text-red-600 hover:bg-red-50
+                        text-destructive hover:bg-destructive/10
                         transition
                       "
                     >
@@ -225,7 +225,7 @@ export default function Navbar() {
 
           {/* MOBILE MENU BUTTON */}
           <button
-            className="md:hidden text-gray-900"
+            className="md:hidden text-foreground"
             onClick={() => setMobileOpen(true)}
           >
             <Menu size={28} />
@@ -245,7 +245,8 @@ export default function Navbar() {
       <div
         className={`
           fixed top-0 right-0 z-50 h-full w-1/4 min-w-[260px]
-          bg-white shadow-lg text-gray-900
+          bg-popover text-popover-foreground
+          shadow-lg
           transform transition-transform duration-300
           ${mobileOpen ? "translate-x-0" : "translate-x-full"}
         `}
@@ -262,7 +263,7 @@ export default function Navbar() {
           {!session ? (
             <Link
               href="/login"
-              className="block px-4 py-2 bg-purple-600 text-white rounded-lg"
+              className="block px-4 py-2 bg-primary text-primary-foreground rounded-lg"
               onClick={() => setMobileOpen(false)}
             >
               Login
@@ -271,12 +272,12 @@ export default function Navbar() {
             <>
               {/* PROFILE */}
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-purple-600 text-white flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center">
                   {session.user?.name?.[0]?.toUpperCase()}
                 </div>
                 <div>
                   <p className="text-sm font-medium">Signed in</p>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-muted-foreground">
                     {session.user?.email}
                   </p>
                 </div>
@@ -298,7 +299,7 @@ export default function Navbar() {
                     setMobileOpen(false);
                     signOut({ callbackUrl: "/" });
                   }}
-                  className="text-left text-red-600"
+                  className="text-left text-destructive"
                 >
                   Logout
                 </button>

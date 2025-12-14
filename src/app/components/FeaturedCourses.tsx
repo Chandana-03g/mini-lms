@@ -13,31 +13,19 @@ export default async function FeaturedCourses() {
         Featured Courses
       </h2>
 
-      {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {featuredCourses.map((course) => (
           <CourseCard
             key={course.id}
-            {...course}
+            id={course.id}
+            title={course.title}
+            level={course.level}
+            featured={course.featured}
+            image={course.image}
             showFeaturedBadge={true}
           />
         ))}
-      </div> */}
-
-      <div className="relative overflow-hidden w-full py-4">
-  <div className="flex w-max gap-4 animate-marquee">
-    {[...featuredCourses, ...featuredCourses].map((course, index) => (
-      <CourseCard
-        key={`${course.id}-${index}`}
-        id={course.id}
-        title={course.title}
-        level={course.level}
-        featured={course.featured}
-        image={course.image}
-        variant="featured"
-      />
-    ))}
-  </div>
-</div>
+      </div>
 
 
       {/* View All Courses Button */}
