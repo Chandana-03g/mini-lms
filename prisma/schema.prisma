@@ -1,0 +1,69 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+
+model User {
+  id          String       @id @default(cuid())
+  name        String
+  email       String       @unique
+  password    String
+  role        Role         @default(STUDENT)
+
+  enrollments Enrollment[]
+  saved       SavedCourse[]
+}
+
+model Course {
+  id          String       @id @default(cuid())
+  title       String
+  level       String
+  featured    Boolean      @default(false)
+image       String?
+  modules     Module[]
+  enrollments Enrollment[]
+  savedBy     SavedCourse[]
+}
+
+model Module {
+  id        String   @id @default(cuid())
+  title     String
+  videoUrl  String
+  notes     String
+
+  courseId String
+  course   Course   @relation(fields: [courseId], references: [id])
+}
+
+model Enrollment {
+  id       String  @id @default(cuid())
+  userId   String
+  courseId String
+  progress Int     @default(0)
+
+  user   User   @relation(fields: [userId], references: [id])
+  course Course @relation(fields: [courseId], references: [id])
+
+  @@unique([userId, courseId])
+}
+
+model SavedCourse {
+  id       String  @id @default(cuid())
+  userId   String
+  courseId String
+
+  user   User   @relation(fields: [userId], references: [id])
+  course Course @relation(fields: [courseId], references: [id])
+
+  @@unique([userId, courseId])
+}
+
+enum Role {
+  ADMIN
+  STUDENT
+}
