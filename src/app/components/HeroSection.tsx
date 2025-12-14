@@ -1,6 +1,7 @@
 export default function HeroSection() {
   return (
-    <section className="min-h-[70vh] flex items-center justify-center text-center px-6 bg-gradient-to-br from-pink-200 via-purple-200 to-blue-200">
+    <section className="min-h-[70vh] flex items-center justify-center text-center px-6 bg-gradient-to-br from-[#fde2f3] via-[#f3e8ff] to-[#d5aed3]
+ -mt-20 pt-24">
       <div>
         <h1 className="text-5xl text-black font-extrabold mb-4">
           Learn with E-Courses

@@ -9,10 +9,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="min-h-screen flex flex-col">
-
+    <html lang="en" className="m-0 p-0">
+      <body className="flex min-h-screen flex-col m-0 p-0 bg-white">
         <Providers>
+
           {/* NAVBAR */}
           <Navbar />
 
@@ -23,8 +23,8 @@ export default function RootLayout({
 
           {/* FOOTER */}
           <Footer />
-        </Providers>
 
+        </Providers>
       </body>
     </html>
   );

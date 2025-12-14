@@ -17,7 +17,7 @@ export default async function SavedPage() {
   return (
     <>
      
-      <main className="bg-[#eff1f4] h-screen  text-gray-950 px-8 py-10">
+      <main className="bg-gradient-to-br from-[#fde2f3] via-[#f3e8ff] to-[#d5aed3] h-screen text-gray-900 px-8 py-10 t-20 pt-24">
         <h1 className="text-3xl font-bold mb-8 text-center md:text-left">
 Saved Courses
 </h1>

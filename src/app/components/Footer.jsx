@@ -1,43 +1,42 @@
 export default function Footer() {
   return (
-    <footer className="bg-[#636568] text-gray-400 mt-20">
-      <div className="max-w-7xl mx-auto px-6 py-8">
+    <footer className="bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#312e81] text-gray-300">
+      <div className="max-w-7xl mx-auto px-6 py-10">
 
         {/* TOP */}
-        <div className="flex flex-col md:flex-row justify-between gap-6">
+        <div className="flex flex-col md:flex-row justify-between gap-8">
           <div>
-            <h2 className="text-xl font-semibold text-gray-950">
+            <h2 className="text-xl font-semibold text-white">
               E-Learn
             </h2>
-            <p className="mt-2 text-sm max-w-sm text-white">
+            <p className="mt-2 text-sm max-w-sm text-gray-300">
               Learn new skills with focused, bite-sized courses designed for
               modern developers.
             </p>
           </div>
 
-          <div className="flex gap-12">
+          <div className="flex gap-16">
             <div>
-              <h3 className="text-gray-950 font-medium mb-2">Platform</h3>
-              <ul className="space-y-1 text-sm text-white">
-                <li>Courses</li>
-                <li>My Learning</li>
-                <li>Saved</li>
+              <h3 className="text-white font-medium mb-3">Platform</h3>
+              <ul className="space-y-2 text-sm">
+                <li className="hover:text-purple-400 cursor-pointer transition">
+                  Courses
+                </li>
+                <li className="hover:text-purple-400 cursor-pointer transition">
+                  My Learning
+                </li>
+                <li className="hover:text-purple-400 cursor-pointer transition">
+                  Saved
+                </li>
               </ul>
             </div>
 
-            <div>
-              <h3 className="text-gray-950 font-medium mb-2">Support</h3>
-              <ul className="space-y-1 text-sm text-white">
-                <li>Help</li>
-                <li>Contact</li>
-                <li>Privacy</li>
-              </ul>
-            </div>
+            
           </div>
         </div>
 
         {/* BOTTOM */}
-        <div className="border-t border-gray-700 mt-8 pt-4 text-white text-sm text-center">
+        <div className="border-t border-white/10 mt-10 pt-4 text-sm text-center text-gray-400">
           © {new Date().getFullYear()} E-Learn. All rights reserved.
         </div>
       </div>

@@ -14,7 +14,7 @@ export async function POST(req: Request) {
   await prisma.enrollment.update({
     where: {
       userId_courseId: {
-        userId: session.user.id,
+        userId: (session.user as any).id,
         courseId,
       },
     },

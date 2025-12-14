@@ -11,18 +11,18 @@ export default async function CoursesPage() {
     <>
 
 
-      <main className="min-h-screen bg-gradient-to-b from-[#fceefe] to-[#f8e2f8] px-8 py-14">
+      <main className="flex-1 bg-gradient-to-br from-[#fde2f3] via-[#f3e8ff] to-[#d5aed3] px-8 py-14 -mt-20 pt-28">
+
         {/* Header */}
-        <section className="mb-8 max-w-xl mx-auto px-2 sm:px-0 text-center md:text-left">
+       <section className="mb-8 max-w-xl mx-auto px-2 sm:px-0 text-center">
+  <h1 className="text-4xl font-bold text-gray-950 mb-2">
+    All Courses
+  </h1>
+  <p className="text-gray-800">
+    Explore our full catalog of courses and find the perfect one for you
+  </p>
+</section>
 
-
-          <h1 className="text-4xl font-bold text-gray-950 mb-2 ">
-            All Courses
-          </h1>
-          <p className="text-gray-800">
-            Explore our full catalog of courses and find the perfect one for you
-          </p>
-        </section>
 
         {/* Courses */}
         <CoursesGrid courses={courses} />

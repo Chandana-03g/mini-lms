@@ -18,7 +18,7 @@ export default async function LearnPage({
   const enrollment = await prisma.enrollment.findUnique({
     where: {
       userId_courseId: {
-        userId: session.user.id,
+        userId: (session.user as any).id,
         courseId,
       },
     },
@@ -35,7 +35,7 @@ export default async function LearnPage({
 
   return (
     <>
-      <Navbar />
+     
     <LearnClient
   modules={enrollment.course.modules}
   courseId={courseId}

@@ -49,58 +49,96 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-[#0b1324]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center px-4 sm:px-6">
+      {/* Background overlay */}
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+
+      {/* Modal card */}
       <div
-        className={`bg-[#162235] p-8 rounded-xl w-full max-w-md ${
-          shake ? "animate-shake" : ""
-        }`}
+        className={`relative z-10 w-full max-w-sm sm:max-w-md rounded-2xl bg-white 
+        p-7 sm:p-10 shadow-2xl ${shake ? "animate-shake" : ""}`}
       >
-        <h2 className="text-2xl text-white font-bold mb-6">
-          {mode === "login" ? "Login" : "Sign Up"}
+        <h2 className="text-center text-xl sm:text-2xl font-bold text-gray-900 mb-1">
+          {mode === "login" ? "Sign in to your account" : "Create your account"}
         </h2>
 
-        {error && <p className="text-red-500 mb-4">{error}</p>}
+        <p className="text-center text-xs sm:text-sm text-gray-600 mb-6">
+          Welcome! Please fill in the details to get started.
+        </p>
+
+        {error && (
+          <p className="mb-4 text-center text-sm text-red-500">
+            {error}
+          </p>
+        )}
 
         {mode === "signup" && (
           <input
-            placeholder="Name"
-            className="w-full mb-4 px-4 py-2 rounded bg-[#22304a] text-white"
+            required
+            placeholder="Full name"
+            className="w-full mb-4 rounded-lg border border-gray-300 
+            px-4 py-2.5 text-sm sm:text-base text-gray-900
+            placeholder-gray-400
+            focus:outline-none focus:ring-2 focus:ring-purple-500"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
         )}
 
         <input
-          placeholder="Email"
-          className="w-full mb-4 px-4 py-2 rounded bg-[#22304a] text-white"
+          required
+          type="email"
+          placeholder="Email address"
+          className="w-full mb-4 rounded-lg border border-gray-300 
+          px-4 py-2.5 text-sm sm:text-base text-gray-900
+          placeholder-gray-400
+          focus:outline-none focus:ring-2 focus:ring-purple-500"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
 
         <input
+          required
           type="password"
           placeholder="Password"
-          className="w-full mb-4 px-4 py-2 rounded bg-[#22304a] text-white"
+          className="w-full mb-6 rounded-lg border border-gray-300 
+          px-4 py-2.5 text-sm sm:text-base text-gray-900
+          placeholder-gray-400
+          focus:outline-none focus:ring-2 focus:ring-purple-500"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
 
         <button
           onClick={handleSubmit}
-          className="w-full bg-purple-600 py-2 rounded font-semibold text-white"
+          className="w-full rounded-lg bg-gray-900 py-2.5 
+          text-sm sm:text-base font-semibold text-white 
+          hover:bg-gray-800 transition"
         >
-          {mode === "login" ? "Login" : "Create Account"}
+          {mode === "login" ? "Continue" : "Create Account"}
         </button>
 
         <p
-          className="text-sm text-gray-400 mt-4 cursor-pointer"
+          className="mt-5 text-center text-xs sm:text-sm text-gray-600 cursor-pointer"
           onClick={() =>
             setMode(mode === "login" ? "signup" : "login")
           }
         >
-          {mode === "login"
-            ? "New user? Sign up"
-            : "Already have an account? Login"}
+          {mode === "login" ? (
+            <>
+              New user?{" "}
+              <span className="font-medium text-purple-600 hover:underline">
+                Create an account
+              </span>
+            </>
+          ) : (
+            <>
+              Already have an account?{" "}
+              <span className="font-medium text-purple-600 hover:underline">
+                Sign in
+              </span>
+            </>
+          )}
         </p>
       </div>
     </div>
