@@ -29,6 +29,7 @@ export const authOptions: NextAuthOptions = {
           where: { email },
         });
 
+        // SIGNUP
         if (mode === "signup") {
           if (!name) throw new Error("MISSING_FIELDS");
           if (user) throw new Error("USER_EXISTS");
@@ -46,6 +47,7 @@ export const authOptions: NextAuthOptions = {
           };
         }
 
+        // LOGIN
         if (!user) throw new Error("USER_NOT_FOUND");
 
         const valid = await bcrypt.compare(password, user.password);
@@ -60,25 +62,14 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
 
-callbacks: {
-  async jwt({ token, user }) {
-    // runs at login
-    if (user) {
-      token.id = user.id;
-    }
-    return token;
+  callbacks: {
+    async session({ session, token }) {
+      if (session.user && token.sub) {
+        session.user.id = token.sub;
+      }
+      return session;
+    },
   },
-
-  async session({ session, token }) {
-    if (session.user) {
-      session.user.id = token.id as string;
-    }
-    return session;
-  },
-},
-
-
-
 
   pages: {
     signIn: "/login",

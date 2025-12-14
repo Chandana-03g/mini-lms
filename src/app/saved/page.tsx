@@ -32,9 +32,11 @@ Saved Courses
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {savedCourses.map((s) => (
             <CourseCard
-              key={s.course.id}
-              {...s.course}
-            />
+  key={s.course.id}
+  {...s.course}
+  image={s.course.image ?? undefined}
+/>
+
           ))}
         </div>
       </main>

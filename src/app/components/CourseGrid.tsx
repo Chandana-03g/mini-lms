@@ -40,6 +40,8 @@ export default function CoursesGrid({ courses }: { courses: Course[] }) {
 
         {filteredCourses.map((course) => (
           <CourseCard key={course.id} {...course} />
+
+
         ))}
       </div>
     </>

@@ -32,7 +32,8 @@ export default async function FeaturedCourses() {
         title={course.title}
         level={course.level}
         featured={course.featured}
-        image={course.image}
+     image={course.image ?? undefined}
+
         variant="featured"
       />
     ))}

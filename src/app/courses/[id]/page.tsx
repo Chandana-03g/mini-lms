@@ -61,7 +61,8 @@ export default async function CourseDetailsPage({
             {course?.id && (
   <CourseAction
     courseId={course.id}
-    image={course.image}
+   image={course.image ?? undefined}
+
     title={course.title}
   />
 )}

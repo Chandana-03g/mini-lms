@@ -5,7 +5,7 @@ type CourseCardProps = {
   title: string;
   level: string;
   featured: boolean;
-  image: string;
+  image?: string;
   showFeaturedBadge?: boolean;
   variant?: "default" | "featured";
 };
